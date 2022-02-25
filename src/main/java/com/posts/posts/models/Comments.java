@@ -1,5 +1,6 @@
 package com.posts.posts.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
@@ -16,6 +17,7 @@ import javax.validation.constraints.NotNull;
 public class Comments extends AuditModel {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
 
     @NotNull
@@ -23,7 +25,7 @@ public class Comments extends AuditModel {
     private String text;
 
     @ManyToOne (fetch = FetchType.LAZY , optional = false)
-    @JoinColumn (name = "Id_post",nullable = false)
+    @JoinColumn (name = "post_id",nullable = false)
     @OnDelete (action = OnDeleteAction.CASCADE)
-    private Posts post;
+    private Post posts;
 }

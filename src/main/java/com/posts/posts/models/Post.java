@@ -1,5 +1,6 @@
 package com.posts.posts.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,10 +13,11 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 
-public class Posts extends AuditModel {
+public class Post extends AuditModel {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long Id;
+    @JsonIgnore
+    private Long id;
 
     @NotNull
     @Size(max = 100)

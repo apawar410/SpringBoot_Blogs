@@ -1,8 +1,8 @@
 package com.posts.posts.repositories;
 
-import com.posts.posts.models.Posts;
-import org.springframework.data.repository.CrudRepository;
+import com.posts.posts.models.Post;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PostRepository extends CrudRepository < Posts ,Long > {
+public interface PostRepository extends JpaRepository<Post,Long > {
 
 }
